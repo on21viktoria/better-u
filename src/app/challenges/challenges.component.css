@@ -1,0 +1,14 @@
+button {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+}
+
+.mat-mdc-fab.mat-accent {
+    background-color: #fcc04a;
+}
+
+mat-icon {
+    color: white;
+}
+

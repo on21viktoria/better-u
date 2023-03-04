@@ -2,7 +2,7 @@
   "name": "Better U",
   "short_name": "#Better U",
   "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "background_color": "#fcc04a",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

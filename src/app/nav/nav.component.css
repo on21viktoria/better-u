@@ -14,4 +14,10 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  background-color: #fcc04a;
+  padding: 0px 5px;
+}
+
+img{
+  padding: 0px 20px;
 }
