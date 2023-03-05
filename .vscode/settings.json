@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/3d093610-2070-4236-88be-25879d510297/resourceGroups/BetterU-Ressources/providers/Microsoft.Web/sites/better-u",
+    "appService.deploySubpath": "dist"
+}
