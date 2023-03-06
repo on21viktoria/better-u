@@ -15,9 +15,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
-import { MatDialogModule} from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatCardModule } from '@angular/material/card'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 import { AddChallengeComponent } from './add-challenge/add-challenge.component';
 import { ChallengeItemComponent } from './challenge-item/challenge-item.component';
 
@@ -28,7 +29,7 @@ import { ChallengeItemComponent } from './challenge-item/challenge-item.componen
     ChallengesComponent,
     NavComponent,
     AddChallengeComponent,
-    ChallengeItemComponent
+    ChallengeItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,7 @@ import { ChallengeItemComponent } from './challenge-item/challenge-item.componen
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
     LayoutModule,
     MatToolbarModule,
@@ -47,12 +48,13 @@ import { ChallengeItemComponent } from './challenge-item/challenge-item.componen
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatCardModule,
-    MatDialogModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

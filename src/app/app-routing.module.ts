@@ -5,13 +5,13 @@ import { AddChallengeComponent } from './add-challenge/add-challenge.component';
 import { ChallengesComponent } from './challenges/challenges.component';
 
 const routes: Routes = [
-  {path: 'challenges', component: ChallengesComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'add-challenges', component: AddChallengeComponent},
+  { path: 'challenges', component: ChallengesComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'add-challenge', component: AddChallengeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

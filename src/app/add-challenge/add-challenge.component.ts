@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Challenge } from '../challenge';
 import { ChallengeService } from '../challenge.service';
 import { SyncService } from '../sync.service';
@@ -13,9 +13,9 @@ export class AddChallengeComponent {
   challenges: Challenge[] = [];
 
   constructor(
-    public dialogRef: MatDialogRef<AddChallengeComponent>,
     private challengeService: ChallengeService,
-    private syncService: SyncService
+    private syncService: SyncService,
+    private router: Router
   ) {
     this.refresh();
   }
@@ -23,6 +23,7 @@ export class AddChallengeComponent {
   async addChallenge(name: string) {
     await this.challengeService.addChallenge(name);
     await this.refresh();
+    this.router.navigate(['/challenges']);
   }
 
   async sync() {

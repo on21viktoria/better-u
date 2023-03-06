@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AddChallengeComponent } from '../add-challenge/add-challenge.component';
 import { Challenge } from '../challenge';
 import { ChallengeService } from '../challenge.service';
@@ -12,20 +12,9 @@ import { ChallengeService } from '../challenge.service';
 export class ChallengesComponent {
   challenges: Challenge[] = [];
   constructor(
-    public dialog: MatDialog,
-    private challengeService: ChallengeService
+    private challengeService: ChallengeService,
+    private router: Router
   ) {}
-
-  openDialog(
-    enterAnimationDuration: string,
-    exitAnimationDuration: string
-  ): void {
-    console.log('open dialog');
-    this.dialog.open(AddChallengeComponent, {
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-  }
 
   ngOnInit() {
     this.challengeService.getAllChallenges().then((challenges) => {
@@ -33,7 +22,11 @@ export class ChallengesComponent {
     });
   }
 
-  async ngDoCheck() {
+  navigate() {
+    this.router.navigate(['/add-challenge']);
+  }
+
+  /*async ngDoCheck() {
     let newChallenges: Challenge[] = [];
     await this.challengeService
       .getAllChallenges()
@@ -43,5 +36,5 @@ export class ChallengesComponent {
     if (this.challenges.length !== newChallenges.length) {
       console.log('I fired');
     }
-  }
+  }*/
 }
