@@ -1,4 +1,9 @@
-<p>challenges works!</p>
-    <button mat-fab>
-        <mat-icon>add</mat-icon>
-      </button>
+<div>
+  <ul>
+    <li *ngFor="let challenge of challenges">{{challenge.name}}</li>
+  </ul>
+</div>
+
+<button mat-fab (click)="openDialog('10ms', '0ms')">
+  <mat-icon>add</mat-icon>
+</button>

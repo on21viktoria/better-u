@@ -1,0 +1,24 @@
+<div>
+    <h1 mat-dialog-title>Add challenge</h1>
+  <div mat-dialog-content>
+    <div>
+      <p>Name</p>
+      <mat-form-field appearance="outline">
+        <mat-label>Outline form field</mat-label>
+        <input matInput placeholder="Placeholder" #input>
+      </mat-form-field>
+    </div>
+    <p>Name</p>
+      <mat-form-field appearance="outline">
+        <mat-label>Outline form field</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    <div>
+    </div>
+   
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>No</button>
+    <button mat-button (click)="addChallenge(input.value)" mat-dialog-close cdkFocusInitial>Save</button>
+  </div>
+</div>
+
