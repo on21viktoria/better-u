@@ -3,22 +3,33 @@ import Dexie from 'dexie';
 import { Challenge } from './challenge';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ChallengeService extends Dexie  {
+export class ChallengeService extends Dexie {
   challenges!: Dexie.Table<Challenge, string>;
 
-  constructor() { 
-    super("challenge-db")
+  constructor() {
+    super('challenge-db');
     this.version(1).stores({
-      challenges: 'id'
-    })
+      challenges: 'id',
+    });
   }
 
-  async addChallenge(name: string) {
-    const challenge = { name, id:crypto.randomUUID()};
+  async addChallenge(
+    name: string,
+    description: string,
+    startDate: string,
+    endDate: string
+  ) {
+    const challenge = {
+      name,
+      id: crypto.randomUUID(),
+      description,
+      startDate,
+      endDate,
+    };
     await this.challenges.add(challenge);
-    console.log(challenge)
+    console.log(challenge);
   }
 
   async getAllChallenges() {

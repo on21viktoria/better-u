@@ -20,8 +20,18 @@ export class AddChallengeComponent {
     this.refresh();
   }
 
-  async addChallenge(name: string) {
-    await this.challengeService.addChallenge(name);
+  async addChallenge(
+    name: string,
+    description: string,
+    startDate: string,
+    endDate: string
+  ) {
+    await this.challengeService.addChallenge(
+      name,
+      description,
+      startDate,
+      endDate
+    );
     await this.refresh();
     this.router.navigate(['/challenges']);
   }
