@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Challenge } from '../challenge';
 import { ChallengeService } from '../challenge.service';
 import { SyncService } from '../sync.service';
@@ -7,17 +7,21 @@ import { SyncService } from '../sync.service';
 @Component({
   selector: 'app-add-challenge',
   templateUrl: './add-challenge.component.html',
-  styleUrls: ['./add-challenge.component.css']
+  styleUrls: ['./add-challenge.component.css'],
 })
 export class AddChallengeComponent {
-  challenges: Challenge[]= []
+  challenges: Challenge[] = [];
 
-  constructor(public dialogRef: MatDialogRef<AddChallengeComponent>, private challengeService: ChallengeService, private syncService: SyncService){
+  constructor(
+    public dialogRef: MatDialogRef<AddChallengeComponent>,
+    private challengeService: ChallengeService,
+    private syncService: SyncService
+  ) {
     this.refresh();
   }
 
   async addChallenge(name: string) {
-    await this.challengeService.addChallenge(name)
+    await this.challengeService.addChallenge(name);
     await this.refresh();
   }
 
@@ -27,9 +31,6 @@ export class AddChallengeComponent {
   }
 
   async refresh() {
-    this.challenges = await this.challengeService.getAllChallenges()
+    this.challenges = await this.challengeService.getAllChallenges();
   }
-
-
 }
-
